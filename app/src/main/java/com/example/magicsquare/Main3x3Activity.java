@@ -135,6 +135,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 twov.setText(Integer.toString(x));
                 v2=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -143,6 +144,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 threev.setText(Integer.toString(x));
                 v3=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
                 //v3 = Integer.parseInt((String) threev.getText());
             }
@@ -152,6 +154,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 fourv.setText(Integer.toString(x));
                 v4=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -160,6 +163,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 fivev.setText(Integer.toString(x));
                 v5=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });sixv.setOnClickListener(new View.OnClickListener() {
@@ -167,6 +171,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 sixv.setText(Integer.toString(x));
                 v6=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -175,6 +180,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 sevenv.setText(Integer.toString(x));
                 v7=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -183,6 +189,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 eightv.setText(Integer.toString(x));
                 v8=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -191,6 +198,7 @@ public class Main3x3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 ninev.setText(Integer.toString(x));
                 v9=x;
+                applyButtonStatus(x, ButtonStatus.DISABLED);
                 checkValues();
             }
         });
@@ -228,13 +236,10 @@ public class Main3x3Activity extends AppCompatActivity {
                 return;
             case ENABLED:
                 buttons[position-1].setEnabled(true);
+                buttons[position-1].setTextColor(Color.GRAY);
                 return;
             case SELECTED:
                 buttons[position-1].setBackgroundColor(Color.YELLOW);
-                return;
-            case DEFAULT:
-                buttons[position-1].setEnabled(true);
-                buttons[position-1].setBackgroundColor(Color.LTGRAY);
                 return;
         }
 
