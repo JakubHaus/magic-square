@@ -14,7 +14,7 @@ enum ButtonStatus {
 
 public class Main3x3Activity extends AppCompatActivity {
 
-    int x;
+    int x = 0;
     int v1,v2,v3,v4,v5,v6,v7,v8,v9;
     boolean r1,r2,r3,s1,s2,s3,u1,u2;
     //int[][] answer = new int[3][3];
@@ -29,17 +29,23 @@ public class Main3x3Activity extends AppCompatActivity {
         Button one = findViewById(R.id.one);
         buttons[0] = one;
         Button two = findViewById(R.id.two);
+        buttons[1] = two;
         Button three = findViewById(R.id.three);
+        buttons[2] = three;
         Button four = findViewById(R.id.four);
+        buttons[3] = four;
         Button five = findViewById(R.id.five);
+        buttons[4] = five;
         Button six = findViewById(R.id.six);
+        buttons[5] = six;
         Button seven = findViewById(R.id.seven);
+        buttons[6] = seven;
         Button eight = findViewById(R.id.eight);
+        buttons[7] = eight;
         Button nine = findViewById(R.id.nine);
+        buttons[8] = nine;
 
-
-        Button Reset = findViewById(R.id.Reset);
-
+        Button reset = findViewById(R.id.Reset);
 
          final Button onev = findViewById(R.id.onev);
          final Button twov = findViewById(R.id.twov);
@@ -56,7 +62,7 @@ public class Main3x3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 x=1;
-
+                applyButtonStatus(x, ButtonStatus.SELECTED);
             }
         });
 
@@ -113,7 +119,8 @@ public class Main3x3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {x=9;}
         });
-        Reset.setOnClickListener(new View.OnClickListener() {
+
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {x=0;}
         });
@@ -122,84 +129,114 @@ public class Main3x3Activity extends AppCompatActivity {
         onev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onev.setText(Integer.toString(x));
-                v1=x;
-                //buttons[x-1].setEnabled(false);
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
-
+                if (x > 0 && onev.getText() == "") {
+                    onev.setText(Integer.toString(x));
+                    v1 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                } else if (onev.getText() != "") {
+                    int x = Integer.parseInt((String) onev.getText());
+                    onev.setText("");
+                    applyButtonStatus(x, ButtonStatus.ENABLED);
+                }
             }
         });
         twov.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                twov.setText(Integer.toString(x));
-                v2=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    twov.setText(Integer.toString(x));
+                    v2 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
         threev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                threev.setText(Integer.toString(x));
-                v3=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
-                //v3 = Integer.parseInt((String) threev.getText());
+                if (x > 0) {
+                    threev.setText(Integer.toString(x));
+                    v3 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+
+                    x = 0;
+                }
             }
         });
         fourv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fourv.setText(Integer.toString(x));
-                v4=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    fourv.setText(Integer.toString(x));
+                    v4 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
         fivev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fivev.setText(Integer.toString(x));
-                v5=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    fivev.setText(Integer.toString(x));
+                    v5 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
-        });sixv.setOnClickListener(new View.OnClickListener() {
+        });
+        sixv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sixv.setText(Integer.toString(x));
-                v6=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    sixv.setText(Integer.toString(x));
+                    v6 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
         sevenv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sevenv.setText(Integer.toString(x));
-                v7=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    sevenv.setText(Integer.toString(x));
+                    v7 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
         eightv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eightv.setText(Integer.toString(x));
-                v8=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    eightv.setText(Integer.toString(x));
+                    v8 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
         ninev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ninev.setText(Integer.toString(x));
-                v9=x;
-                applyButtonStatus(x, ButtonStatus.DISABLED);
-                checkValues();
+                if (x > 0) {
+                    ninev.setText(Integer.toString(x));
+                    v9 = x;
+                    applyButtonStatus(x, ButtonStatus.DISABLED);
+                    checkValues();
+                    x = 0;
+                }
             }
         });
 
@@ -225,24 +262,29 @@ public class Main3x3Activity extends AppCompatActivity {
             u1=true;}
         if (v1+v5+v9==15) {
             u2=true;}
+        if (r1 && r2 && r3 && s1&& s2&& s3&& u1 && u2) {
+            Button reset = findViewById(R.id.Reset);
+            reset.setText("Hura");
+        }
     }
 
 
     public void applyButtonStatus(int position, ButtonStatus status) {
-        switch (status) {
-            case DISABLED:
-                buttons[position-1].setEnabled(false);
-                buttons[position-1].setTextColor(Color.RED);
-                return;
-            case ENABLED:
-                buttons[position-1].setEnabled(true);
-                buttons[position-1].setTextColor(Color.GRAY);
-                return;
-            case SELECTED:
-                buttons[position-1].setBackgroundColor(Color.YELLOW);
-                return;
+        if (buttons.length >= position) {
+            switch (status) {
+                case DISABLED:
+                    buttons[position - 1].setEnabled(false);
+                    buttons[position - 1].setTextColor(Color.RED);
+                    return;
+                case ENABLED:
+                    buttons[position - 1].setEnabled(true);
+                    buttons[position - 1].setTextColor(Color.BLACK);
+                    return;
+                case SELECTED:
+                    buttons[position - 1].setTextColor(Color.GREEN);
+                    return;
+            }
         }
-
     }
 
 
